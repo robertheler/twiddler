@@ -85,10 +85,12 @@
         $('#tweed').on('keyup', (event)=> {
           if ($(event.currentTarget).val().length > 0) {
             $('.button').css('color','#FFBB00');
-            $('.button').css('box-shadow','0px 0px 20px #FFBB00');
+            //$('.button').css('box-shadow','0px 0px 20px #FFBB00');
+            $('.button').css('box-shadow','2px 2px 3px rgba(0,0,0,0.3), -2px -2px 3px #FFBB0030');
            } else {
             $('.button').css('color','#0C0E0F');
-            $('.button').css('box-shadow','0px 0px 20px black');
+            //$('.button').css('box-shadow','0px 0px 20px black');
+            $('.button').css('box-shadow','2px 2px 3px rgba(0,0,0,0.3), -2px -2px 3px rgba(255,255,255, 0.1)');
           }
         });
         
@@ -103,7 +105,8 @@
             $('#tweed').val("");
             $('#tweed').attr('placeholder', "What's on your mind?");
             $('.button').css('color','#0C0E0F');
-            $('.button').css('box-shadow','0px 0px 20px black');
+            //$('.button').css('box-shadow','0px 0px 20px black');
+            $('.button').css('box-shadow','2px 2px 3px rgba(0,0,0,0.3), -2px -2px 3px rgba(255,255,255, 0.1)');
           }
         });
         

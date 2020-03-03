@@ -78,6 +78,7 @@
 
 #tweed {
   background-color:#AEB2B3;
+  //background-color:#25292D;
   box-sizing: border-box;
   width: 400px;
   height: 60px;
@@ -87,6 +88,8 @@
   opacity: 0.6;
   transition: 0.3s;
   box-shadow: 0px 0px 20px black;
+  //box-shadow: -3px -3px 3px rgba(0,0,0,0.3), 3px 3px 3px rgba(255,255,255, 0.1);  
+  
   border-radius: 10px;
   padding: 10px;
   font-size: 15px;
@@ -105,7 +108,8 @@
 
 .button {
   color: #0C0E0F;
-  background-color:#3F4349;
+  //background-color:#3F4349;
+  background-color:#25292D;
   width: 75px;
   height: 30px;
   font-size: 15px;
@@ -116,7 +120,8 @@
   border-radius: 10px;  
   transition: 0.3s;
   text-align: center;
-  box-shadow: 0px 0px 20px black;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.3), -2px -2px 3px rgba(255,255,255, 0.1);  
+  //box-shadow: 0px 0px 20px black;
 }
 
 
