@@ -116,14 +116,17 @@
   font-weight: bolder;
   font-family: 'Nunito Sans';
   border: none;
-  box-shadow: 20px 2px;
+  //box-shadow: 20px 2px;
   border-radius: 10px;  
   transition: 0.3s;
   text-align: center;
-  box-shadow: 2px 2px 3px rgba(0,0,0,0.3), -2px -2px 3px rgba(255,255,255, 0.1);  
+  //box-shadow: 2px 2px 3px rgba(0,0,0,0.3), -2px -2px 3px rgba(255,255,255, 0.1);  
   //box-shadow: 0px 0px 20px black;
+  box-shadow: -1px -1px 3px rgba(0,0,0,0.3), +1px +1px 3px rgba(255,255,255, 0.1); !important
 }
-
+.button:hover{
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.3), -3px -3px 10px rgba(255,255,255, 0.1); !important 
+}
 
 body {
   justify-content: center;
