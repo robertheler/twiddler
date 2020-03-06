@@ -59,11 +59,13 @@
   color: #AEB2B3;
   font-family: 'Nunito Sans';
   font-size: 15px;
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1); 
 }
 
 .feed div:hover {
   opacity: 1;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.6);
+  //box-shadow: 0px 0px 20px rgba(0,0,0,0.6);
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.5), -3px -3px 10px rgba(255,255,255, 0.1); !important 
 }
 
 .post {
@@ -87,9 +89,10 @@
   border: none;
   opacity: 0.6;
   transition: 0.3s;
-  box-shadow: 0px 0px 20px black;
+  //box-shadow: 0px 0px 20px black;
   //box-shadow: -3px -3px 3px rgba(0,0,0,0.3), 3px 3px 3px rgba(255,255,255, 0.1);  
-  
+  //box-shadow: 3px 3px 10px rgba(0,0,0,0.5), -3px -3px 10px rgba(255,255,255, 0.1);
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1); 
   border-radius: 10px;
   padding: 10px;
   font-size: 15px;
@@ -104,6 +107,7 @@
 #tweed:hover {
   opacity: 1;   
   box-shadow: 0px 0px 20px rgba(0,0,0,0.6);
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.5), -3px -3px 10px rgba(255,255,255, 0.1);
 }
 
 .button {
@@ -124,7 +128,7 @@
   
 }
 .button:hover{
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.3), -3px -3px 10px rgba(255,255,255, 0.1); !important 
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.5), -3px -3px 10px rgba(255,255,255, 0.1); !important 
 }
 
 body {

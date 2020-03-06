@@ -86,11 +86,15 @@
           if ($(event.currentTarget).val().length > 0) {
             $('.button').css('color','#FFBB00');
             //$('.button').css('box-shadow','0px 0px 20px #FFBB00');
-           
-            $('.button').css('box-shadow','3px 3px 10px rgba(0,0,0,0.3), -3px -3px 10px rgba(255,255,255, 0.1)');
+            $('#tweed').css('opacity','1');
+            $('#tweed').css('box-shadow','3px 3px 10px rgba(0,0,0,0.5), -3px -3px 10px rgba(255,255,255, 0.1)');
+            $('.button').css('box-shadow','3px 3px 10px rgba(0,0,0,0.5), -3px -3px 10px rgba(255,255,255, 0.1)');
            } else {
             $('.button').css('color','#0C0E0F');
             //$('.button').css('box-shadow','0px 0px 20px black');
+             $('#tweed').css('opacity','0.6');
+             $('#tweed').blur();
+             $('#tweed').css('box-shadow','inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)');
             $('.button').css('box-shadow','inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)');
           }
         });
@@ -110,6 +114,8 @@
             //$('.button').css('box-shadow','3px 3px 10px rgba(0,0,0,0.3), -3px -3px 10px rgba(255,255,255, 0.1)');
             $('.button').css('box-shadow','inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)');
             $('.button').blur();
+            $('#tweed').css('opacity','0.6');
+            $('#tweed').css('box-shadow','inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)');
           }
         });
         
