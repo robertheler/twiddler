@@ -4,127 +4,166 @@
     <script src="jquery.js"></script>
     <script src="moment.js"></script>
     <script src="data_generator.js"></script>
-    <link href="style.css" type="text/css" rel="stylesheet">
+    <link href="style.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
     <div class="header">
       <h1>Twiddler</h1>
     </div>
-    <form method= "POST" >
+    <form method="POST">
       <div class="post">
         <textarea id="tweed" placeholder="What's on your mind?"></textarea>
         <button type="button" class="button">Tweed</button>
-        <img class="img" src="images/refresh.png" width="25">
+        <img class="img" src="images/refresh.png" width="25" />
         <p class="reset">Show all</p>
       </div>
     </form>
     <div class="feed"></div>
     <script>
       $(document).ready(function() {
-        var feed = $('.feed');
+        var feed = $(".feed");
         var index = streams.home.length - 1;
-        
-        while(index >= 0){
+
+        while (index >= 0) {
           var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.html('<b class="user">@' + tweet.user + ':</b> ' + tweet.message + '<br><i class="date"> ' + 
-          moment(tweet.created_at).fromNow() +'</i>');
+          var $tweet = $("<div></div>");
+          $tweet.html(
+            '<b class="user">@' +
+              tweet.user +
+              ":</b> " +
+              tweet.message +
+              '<br><i class="date"> ' +
+              moment(tweet.created_at).fromNow() +
+              "</i>"
+          );
           $tweet.appendTo(feed);
           index -= 1;
         }
-        
-        $('.user').on('click', (event) => {
-          $('.reset').css('opacity', '1');
+
+        $(".user").on("click", event => {
+          $(".reset").css("opacity", "1");
           var username = $(event.currentTarget).text();
           username = username.substring(1, username.length - 1);
           filterOn = true;
           filterUser = username;
-          $('.img').click();
+          $(".img").click();
         });
-        
-        $('.img').on("click", () => {
-          $('.img').fadeOut(90).fadeIn(90);
-          var feed = $('.feed');
-          var output= "";
+
+        $(".img").on("click", () => {
+          $(".img")
+            .fadeOut(90)
+            .fadeIn(90);
+          var feed = $(".feed");
+          var output = "";
           var allDates = document.body.getElementsByClassName("date");
-          var index = streams.home.length-1;
-          
-          while(index >= 0){
+          var index = streams.home.length - 1;
+
+          while (index >= 0) {
             var tweet = streams.home[index];
             var tweetElement = "";
-            
+
             if (filterOn === true) {
               if (tweet.user === filterUser) {
-                tweetElement='<div><b class="user">@' + tweet.user + ':</b> ' + tweet.message + '<br><i class="date"> ' + 
-                moment(tweet.created_at).fromNow() +'</i></div>'
+                tweetElement =
+                  '<div><b class="user">@' +
+                  tweet.user +
+                  ":</b> " +
+                  tweet.message +
+                  '<br><i class="date"> ' +
+                  moment(tweet.created_at).fromNow() +
+                  "</i></div>";
                 output = output + tweetElement;
-              } else {};
+              } else {
+              }
             } else {
-                tweetElement='<div><b class="user">@' + tweet.user + ':</b> ' + tweet.message + '<br><i class="date"> ' + 
-                moment(tweet.created_at).fromNow() +'</i></div>'
-                output = output + tweetElement;
+              tweetElement =
+                '<div><b class="user">@' +
+                tweet.user +
+                ":</b> " +
+                tweet.message +
+                '<br><i class="date"> ' +
+                moment(tweet.created_at).fromNow() +
+                "</i></div>";
+              output = output + tweetElement;
             }
             index -= 1;
           }
 
           feed.html(output);
-          
+
           // I had to re-assign this event listener in order for it to work
           // on the dynamic HTML
-          $('.user').on('click', (event) => {
-    
+          $(".user").on("click", event => {
             var username = $(event.currentTarget).text();
-         
+
             username = username.substring(1, username.length - 1);
             filterOn = true;
             filterUser = username;
-            $('.reset').css('opacity', '1');
-          });   
+            $(".reset").css("opacity", "1");
+          });
         });
-        
-        $('#tweed').on('keyup', (event)=> {
+
+        $("#tweed").on("keyup", event => {
           if ($(event.currentTarget).val().length > 0) {
-            $('.button').css('color','#FFBB00');
+            $(".button").css("color", "#FFBB00");
             //$('.button').css('box-shadow','0px 0px 20px #FFBB00');
-            $('#tweed').css('opacity','1');
-            $('#tweed').css('box-shadow','3px 3px 10px rgba(0,0,0,0.5), -3px -3px 10px rgba(255,255,255, 0.1)');
-            $('.button').css('box-shadow','3px 3px 10px rgba(0,0,0,0.5), -3px -3px 10px rgba(255,255,255, 0.1)');
-           } else {
-            $('.button').css('color','#0C0E0F');
+            $("#tweed").css("opacity", "1");
+            $("#tweed").css(
+              "box-shadow",
+              "3px 3px 10px rgba(0,0,0,0.5), -3px -3px 10px rgba(255,255,255, 0.1)"
+            );
+            $(".button").css(
+              "box-shadow",
+              "3px 3px 10px rgba(0,0,0,0.5), -3px -3px 10px rgba(255,255,255, 0.1)"
+            );
+          } else {
+            $(".button").css("color", "#0C0E0F");
             //$('.button').css('box-shadow','0px 0px 20px black');
-             $('#tweed').css('opacity','0.6');
-             $('#tweed').blur();
-             $('#tweed').css('box-shadow','inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)');
-            $('.button').css('box-shadow','inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)');
+            $("#tweed").css("opacity", "0.6");
+            $("#tweed").blur();
+            $("#tweed").css(
+              "box-shadow",
+              "inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)"
+            );
+            $(".button").css(
+              "box-shadow",
+              "inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)"
+            );
             $(event.currentTarget).focus();
           }
         });
-        
-        $('.button').on('click', () => {
+
+        $(".button").on("click", () => {
           var tweet = {};
-          tweet.message = $('#tweed').val();
-          if (tweet.message.length > '0') {
-            tweet.user = 'robertheler';
+          tweet.message = $("#tweed").val();
+          if (tweet.message.length > "0") {
+            tweet.user = "robertheler";
             tweet.created_at = new Date();
             addTweet(tweet);
-            $('.img').click();
-            $('#tweed').val("");
-            $('#tweed').attr('placeholder', "What's on your mind?");
-            $('.button').css('color','#0C0E0F');
+            $(".img").click();
+            $("#tweed").val("");
+            $("#tweed").attr("placeholder", "What's on your mind?");
+            $(".button").css("color", "#0C0E0F");
             //$('.button').css('box-shadow','0px 0px 20px black');
             //$('.button').css('box-shadow','3px 3px 10px rgba(0,0,0,0.3), -3px -3px 10px rgba(255,255,255, 0.1)');
-            $('.button').css('box-shadow','inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)');
-            $('.button').blur();
-            $('#tweed').css('opacity','0.6');
-            $('#tweed').css('box-shadow','inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)');
+            $(".button").css(
+              "box-shadow",
+              "inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)"
+            );
+            $(".button").blur();
+            $("#tweed").css("opacity", "0.6");
+            $("#tweed").css(
+              "box-shadow",
+              "inset 2px 2px 5px rgba(0,0,0,0.3), inset -1px -1px 5px rgba(255,255,255, 0.1)"
+            );
           }
         });
-        
-        $('.reset').on('click', () => {
-          $('.reset').css('opacity', '0');
+
+        $(".reset").on("click", () => {
+          $(".reset").css("opacity", "0");
           filterOn = false;
-          filterUser="";
-          $('.img').click();
+          filterUser = "";
+          $(".img").click();
         });
       });
     </script>
